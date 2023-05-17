@@ -3,6 +3,7 @@ import subject from "../models/subject.js";
 import department from "../models/department.js";
 
 export const index = async (req, res) => {
+    console.log (req.user);
     const subjects = await subject.find({}, { name: 1 }).lean();
     res.render('subjects/index', { subjects })
 };
@@ -13,13 +14,14 @@ export const create = async (req, res) => {
 };
 
 export const store = async (req, res) => {
-    const { name, code, department, prerequisite} = req.body;
+    const { name, code, department, prerequisite  } = req.body;
 
     await subject.create({
         name,
         code,
         department,
         prerequisite,
+        
     });
     res.redirect('/subjects');
 
@@ -41,9 +43,9 @@ export const edit = async (req, res) => {
 };
 
 export const update = async (req, res) => {
-    const { name, code, department,prerequisite } = req.body;
+    const { name, code, department, prerequisite,Doctor } = req.body;
     const { id } = req.params;
-    await subject.findByIdAndUpdate(id, { $set: { name: name, code: code, department: department ,prerequisite:prerequisite } })
+    await subject.findByIdAndUpdate(id, { $set: { name: name, code: code, department: department, prerequisite: prerequisite } })
     res.redirect('/subjects');
 
 };
