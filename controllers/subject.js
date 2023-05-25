@@ -42,7 +42,7 @@ export const edit = async (req, res) => {
 };
 
 export const update = async (req, res) => {
-    const { name, code, department, prerequisite,Doctor } = req.body;
+    const { name, code, department, prerequisite } = req.body;
     const { id } = req.params;
     await subject.findByIdAndUpdate(id, { $set: { name: name, code: code, department: department, prerequisite: prerequisite } })
     res.redirect('/subjects');

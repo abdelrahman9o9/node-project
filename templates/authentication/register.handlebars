@@ -50,7 +50,7 @@
 
 <body>
     <div class="login-container">
-        <h2>Register</h2>
+        <h2>Create account for student</h2>
         <form action="/register" method="post">
             <div>
                 <label for="username">Username</label>
@@ -64,12 +64,6 @@
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password">
             </div>
-            <div>
-                <input type="radio" name="user_type" value="student" id="student">
-                <label for="student">Student</label>
-                <input type="radio" name="user_type" value="doctor" id="doctor">
-                <label for="doctor">Doctor</label>
-            </div>
             <div id="academic_id_container">
                 <label for="academic_id">Academic ID</label>
                 <input type="text" name="academic_id" id="academic_id">
@@ -79,19 +73,6 @@
             </div>
         </form>
     </div>
-    <script>
-        var studentRadio = document.getElementById("student");
-        var doctorRadio = document.getElementById("doctor");
-        var academicIdContainer = document.getElementById("academic_id_container");
-
-        studentRadio.addEventListener("change", function () {
-            academicIdContainer.style.display = "block";
-        });
-
-        doctorRadio.addEventListener("change", function () {
-            academicIdContainer.style.display = "none";
-        });
-    </script>
 </body>
 
 </html>

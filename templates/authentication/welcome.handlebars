@@ -54,7 +54,8 @@
 
   <div class="button-container">
     <button class="button" onclick="goToLogin()">Login</button>
-    <button class="button" onclick="goToRegister()">Create accounts</button>
+    <button class="button" onclick="goToRegister()"> create account student</button>
+    <button class="button" onclick="goToRegisterdoc()">create account doctor</button>
     <button class="button" onclick="goToDepartments()">Departments</button>
     <button class="button" onclick="goToSubjects()">Subjects</button>
   </div>
@@ -68,6 +69,11 @@
     function goToRegister() {
       // تحويل إلى راوت التسجيل
       window.location.href = "/register";
+    }
+
+    function goToRegisterdoc() {
+      // تحويل إلى راوت التسجيل
+      window.location.href = "/registerdoc";
     }
 
     function goToDepartments() {

@@ -1,6 +1,5 @@
 import { Router } from "express";
 import { create, deleteOne, edit, index, show, store, update } from "../controllers/subject.js";
-import department from "../models/department.js";
 
 const router = new Router();
 

@@ -4,8 +4,8 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import subjectsRouter from './routes/subjects.js';
 import departmentsRoutes from './routes/departmentsRoutes.js';
-import auth_register from './routes/departmentsRoutes.js';
-import authroutes from './routes/auth.js';
+import authroutes  from './routes/auth.js';
+import  welcomeform  from './routes/first.js';
 import methodOverride  from 'method-override';
 import cookieParser from 'cookie-parser';
 import {authentication} from './middleware/authentication.js';
@@ -23,8 +23,8 @@ app.set('view engine', 'handlebars');
 app.set('views', './templates');
 
 app.use('/', authroutes);
+app.use('/', welcomeform);
 
-app.use('/register' , authentication  , auth_register );
 app.use('/subjects' , authentication  , subjectsRouter );
 app.use('/departments', authentication ,departmentsRoutes);
 

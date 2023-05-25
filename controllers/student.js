@@ -1,6 +1,6 @@
-import user from "../models/user.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import student from "../models/student.js";
 
 
 export const registerform = (req, res) => {
@@ -11,7 +11,7 @@ export const register = async (req, res) => {
     const { username, email, password, academic_id } = req.body;
     var salt = bcrypt.genSaltSync(10);
     var encrptedpassword = bcrypt.hashSync(password, salt);
-    await user.create({ username, email, password: encrptedpassword, academic_id });
+    await student.create({ username, email, password: encrptedpassword, academic_id });
     res.redirect('/login');
 };
 
@@ -22,7 +22,7 @@ export const loginform = (req, res) => {
 export const login = async (req, res) => {
     const { email, password } = req.body;
 
-    const loggeduser = await user.findOne({ email });
+    const loggeduser = await student.findOne({ email });
     const iscorrectpassword = bcrypt.compareSync(password, loggeduser.password);
     if (!iscorrectpassword) {
         return res.send('Incorrect passwword');
@@ -36,6 +36,17 @@ export const login = async (req, res) => {
     res.cookie('token', jwttoken);
     res.redirect('/subjects');
 };
+export const registerformdoc = (req, res) => {
+    res.render('authentication/register_doc');
+};
+
+export const registerdoc = async (req, res) => {
+    const { username, email, password } = req.body;
+    var salt = bcrypt.genSaltSync(10);
+    var encrptedpassword = bcrypt.hashSync(password, salt);
+    await student.create({ username, email, password: encrptedpassword });
+    res.redirect('/login');
+};
 export const welcomeform = (req, res) => {
-    res.render('layouts/welcome');
+    res.render('authentication/welcome');
 };
