@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome</title>
+  <style>
+    body {
+      background-image: url('background-image.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .welcome-message {
+      font-family: Arial, sans-serif;
+      font-size: 30px;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .button-container {
+      margin-top: 20px;
+    }
+
+    .button {
+      font-family: Arial, sans-serif;
+      font-size: 20px;
+      padding: 10px 20px;
+      margin: 10px;
+      background-color: #337ab7;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.16), 0 6px 12px rgba(0, 0, 0, 0.23);
+    }
+  </style>
+</head>
+<body>
+  <div class="welcome-message">
+    <h1>Welcome to ibn hanafy System😊</h1>
+    <p>Start your journey with us🎈!</p>
+  </div>
+
+  <div class="button-container">
+    <button class="button" onclick="goToLogin()">Login</button>
+    <button class="button" onclick="goToRegister()">Create accounts</button>
+    <button class="button" onclick="goToDepartments()">Departments</button>
+    <button class="button" onclick="goToSubjects()">Subjects</button>
+  </div>
+
+  <script>
+    function goToLogin() {
+      // تحويل إلى راوت الدخول
+      window.location.href = "/login";
+    }
+
+    function goToRegister() {
+      // تحويل إلى راوت التسجيل
+      window.location.href = "/register";
+    }
+
+    function goToDepartments() {
+      // تحويل إلى راوت القسام
+      window.location.href = "/departments";
+    }
+
+    function goToSubjects() {
+      // تحويل إلى راوت المواد
+      window.location.href = "/subjects";
+    }
+  </script>
+</body>
+</html>

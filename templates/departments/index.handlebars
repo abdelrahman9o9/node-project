@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Departments</title>
+  <!-- تضمين Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <h1>Departments</h1>
+
+  <div class="my-2">
+    <a href="/departments/create" class="btn btn-info">Add a New Department</a>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each departments}}
+      <tr>
+        <td>
+          <a href="/departments/{{_id}}" class="btn btn-link">{{ name }}</a>
+        </td>
+        <td>
+          <div class="btn-group" role="group">
+            <a href="/departments/{{_id}}/edit" class="btn btn-secondary">Edit</a>
+            <form action="/departments/{{_id}}?_method=DELETE" method="post" onsubmit="return confirm('Are you sure you want to delete this department?');">
+              <button type="submit" class="btn btn-light">Delete</button>
+            </form>
+          </div>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <!-- تضمين Bootstrap JS -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

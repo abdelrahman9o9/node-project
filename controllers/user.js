@@ -26,14 +26,16 @@ export const login = async (req, res) => {
     const iscorrectpassword = bcrypt.compareSync(password, loggeduser.password);
     if (!iscorrectpassword) {
         return res.send('Incorrect passwword');
-    }; 
-
-    const data ={
-        _id:loggeduser._id,
-        email:loggeduser.email,
     };
-    const jwttoken = jwt.sign(data , process.env.jwt_secret);
-    res.cookie('token' , jwttoken);
-
-    res.send('logged in');
+    const data = {
+        _id: loggeduser._id,
+        email: loggeduser.email,
+        password:loggeduser.password,
+    };
+    const jwttoken = jwt.sign(data, process.env.jwt_secret);
+    res.cookie('token', jwttoken);
+    res.redirect('/subjects');
+};
+export const welcomeform = (req, res) => {
+    res.render('layouts/welcome');
 };

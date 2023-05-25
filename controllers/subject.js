@@ -3,7 +3,6 @@ import subject from "../models/subject.js";
 import department from "../models/department.js";
 
 export const index = async (req, res) => {
-    console.log (req.user);
     const subjects = await subject.find({}, { name: 1 }).lean();
     res.render('subjects/index', { subjects })
 };

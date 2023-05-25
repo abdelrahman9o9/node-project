@@ -1,0 +1,40 @@
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th,
+    td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    .subject-name {
+        font-weight: bold;
+    }
+
+    .department-name {
+        font-style: italic;
+        color: #666;
+    }
+</style>
+
+<table>
+    <tr>
+        <th>Department name</th>
+        <td class="subject-name">{{department.name}}</td>
+    </tr>
+    <tr>
+        <th>Code</th>
+        <td>{{department.code}}</td>
+    </tr>
+
+
+</table>
+<h3>

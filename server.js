@@ -3,6 +3,8 @@ import { engine } from 'express-handlebars';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import subjectsRouter from './routes/subjects.js';
+import departmentsRoutes from './routes/departmentsRoutes.js';
+import auth_register from './routes/departmentsRoutes.js';
 import authroutes from './routes/auth.js';
 import methodOverride  from 'method-override';
 import cookieParser from 'cookie-parser';
@@ -22,7 +24,11 @@ app.set('views', './templates');
 
 app.use('/', authroutes);
 
-app.use('/subjects' , authentication , subjectsRouter );
+app.use('/register' , authentication  , auth_register );
+app.use('/subjects' , authentication  , subjectsRouter );
+app.use('/departments', authentication ,departmentsRoutes);
+
+  
 
 app.listen(process.env.PORT, () => {
     console.log(`Statted The App on http://localhost:${process.env.PORT}`)

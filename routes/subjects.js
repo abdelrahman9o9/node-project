@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { create, deleteOne, edit, index, show, store, update } from "../controllers/subject.js";
+import department from "../models/department.js";
 
 const router = new Router();
 
@@ -17,9 +18,5 @@ router.get('/:id/edit', edit);
 router.put('/:id', update);
 
 router.delete('/:id', deleteOne)
-
-
-
-
 
 export default router;
